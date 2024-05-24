@@ -1,7 +1,6 @@
-﻿
-using AppRpgEtec.Models;
+﻿using AppRpgEtec.Models;
 
-namespace AppRpgEtec.Services.Personagens
+namespace AppRpgEtec.Services.Times
 {
     internal class request
     {
@@ -25,12 +24,12 @@ namespace AppRpgEtec.Services.Personagens
             throw new NotImplementedException();
         }
 
-        internal static Task<int> PostReturnIntAsync(object apiUrlBase, Personagem p, object token)
+        internal static Task<int> PostReturnIntAsync(object apiUrlBase, Time t, object token)
         {
             throw new NotImplementedException();
         }
 
-        internal static Task<int> PutAsync(object apiUrlBase, Personagem p, object token)
+        internal static Task<int> PutAsync(object apiUrlBase, Time t, object token)
         {
             throw new NotImplementedException();
         }

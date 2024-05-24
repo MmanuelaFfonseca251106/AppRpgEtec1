@@ -37,16 +37,16 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-        <ShellContent Title="Tempo Real"  Icon="menuusuarios.svg"
+        <ShellContent Title="Usuários"  Icon="menuusuarios.svg"
                   ContentTemplate="{DataTemplate viewsUsuarios:ListagemView}" />
 
         <ShellContent Title="Personagens" Icon="menupersonagens.svg" 
                   ContentTemplate="{DataTemplate viewsPersonagens:ListagemView}" />
 
-        <ShellContent Title="Times" 
-                      ContentTemplate="{DataTemplate viewsTimes:ListagemView}"/>
-
-
+        <ShellContent Title="Times"  
+                      ContentTemplate="{DataTemplate viewsTimes:ListagemView}"/> 
+        
+       
         <Tab Title="Info" Route="info" Icon="info.svg">           
 
             <ShellContent Title="Sobre" Route="sobre" 

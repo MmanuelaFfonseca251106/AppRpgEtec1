@@ -1,4 +1,6 @@
-﻿using AppRpgEtec.Models;
+﻿
+
+using AppRpgEtec.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,15 +11,15 @@ using System.Threading.Tasks;
 
 namespace AppRpgEtec.Services.Personagens
 {
-    public class PersonagemService : Request
+    public class PersonagensService : Request
     {
         private readonly Request _request;
         private const string _apiUrlBse = "https://rpgapi20241pam.azurewebsites.net/Personagens";
 
         private string _token;
+        private string personagemId;
 
-
-        public PersonagemService(string token)
+        public PersonagensService(string token)
         {
             _request = new Request();
             _token = token;
@@ -37,9 +39,9 @@ namespace AppRpgEtec.Services.Personagens
 
         public async Task<Personagem> GetPersonagemAsync(int personagemId)
         {
-            string urlComplementar = string.Format("/{0}", personagemId);
+            string urlComplementar = string.Format("/{0}",personagemId );
             var personagem = await _request.GetAsync<Models.Personagem>(_apiUrlBse + urlComplementar, _token);
-            return personagem;
+            return personagem ;
         }
 
         public async Task<int> PutPersonagemAsync(Personagem p)
@@ -48,15 +50,15 @@ namespace AppRpgEtec.Services.Personagens
             return result;
         }
 
-        public async Task<int> DeletePersonagemAsync(int personagemId)
+        public async Task<int> DeleteTimesAsync(int personagemId )
         {
             string urlComplementar = string.Format("/{0}", personagemId);
             var result = await _request.DeleteAsync(_apiUrlBse + urlComplementar, _token);
             return result;
         }
-       
-       
-       
+
+
+
     }
 
 }

@@ -9,7 +9,9 @@ namespace AppRpgEtec.Models
     public class TipoClasse
     {
         public int Id { get; set; }
-        public string Descricao { get; set; }   
-        
+        public string Raça { get; set; }
+        public object Nome { get; internal set; }
+        public int Nível { get; set; }
+        public string Classe1 { get; set; }
     }
 }

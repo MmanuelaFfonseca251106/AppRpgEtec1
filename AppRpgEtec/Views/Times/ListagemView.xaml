@@ -5,7 +5,7 @@
              Title="ListagemView">
 
     <Shell.TitleView>
-        <Button Command="{Binding NovoPersonagem}" Text="Novo" HorizontalOptions="End"></Button>
+        <Button Command="{Binding NovoTime}" Text="Novo" HorizontalOptions="End"></Button>
     </Shell.TitleView>
     <ScrollView>
         <VerticalStackLayout Padding="10, 0, 0, 0" VerticalOptions="FillAndExpand">
@@ -13,10 +13,15 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
+                            <ViewCell.ContextActions>
+                                <MenuItem Text="Remover" IsDestructive="True"                                          
+                                     Command="{Binding Path=BindingContext.RemoverPersonagemCommand, Source={x:Reference listView}}"
+                                     CommandParameter="{Binding .}"></MenuItem>
+                            </ViewCell.ContextActions>
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Nome}" FontSize="18" FontAttributes="Bold"/>
-                                <Label Text="{Binding PontosVida}" FontSize="14"/>
-                            </StackLayout>
+                                <Label Text="{Binding Nível}" FontSize="14"/>
+                                </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

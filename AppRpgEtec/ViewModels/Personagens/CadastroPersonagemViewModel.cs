@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using AppRpgEtec.Models;
 using AppRpgEtec.Models.Enuns;
 using System.Windows.Input;
+using System.Security.AccessControl;
 
 
 namespace AppRpgEtec.ViewModels.Personagens
@@ -15,7 +16,7 @@ namespace AppRpgEtec.ViewModels.Personagens
     public class CadastroPersonagemViewModel : BaseViewModel
     {
         private PersonagemService pService;
-        public ICommand SalvarCommand { get; }
+        public ICommand SalvarCommand { get; set; }
 
         public CadastroPersonagemViewModel()
         {
@@ -26,13 +27,9 @@ namespace AppRpgEtec.ViewModels.Personagens
         }
         private int id;
         private string nome;
-        private int pontosVida;
-        private int forca;
-        private int defesa;
-        private int inteligencia;
-        private int disputas;
-        private int vitorias;
-        private int derrotas;
+        private int nível;
+        private int raça;
+        private string classe1;
 
         public int Id
         {
@@ -52,67 +49,31 @@ namespace AppRpgEtec.ViewModels.Personagens
                 OnPropertyChanged(nameof(Nome));
             }
         }
-           public int PontosVida
+           public int Nível
         {
-            get => PontosVida;
+            get => Nível;
             set
             {
-                PontosVida = value;
-                OnPropertyChanged(nameof(PontosVida));
+                Nível = value;
+                OnPropertyChanged(nameof(Nível));
             }
          }
-         public int Forca
+        public int Raça
         {
-            get => Forca;
+            get => Raça;
             set
             {
-                Forca = value;
-                OnPropertyChanged(nameof(Forca));
+               Raça = value;
+                OnPropertyChanged(nameof(Raça));
             }
         }
-          public int Defesa
+        public string Classe1
         {
-            get => Defesa;
+            get => Classe1;
             set
             {
-                Defesa = value;
-                OnPropertyChanged(nameof(Defesa));
-            }
-        }
-          public int Inteligencia
-        {
-            get => Inteligencia;
-            set
-            {
-                Inteligencia = value;
-                OnPropertyChanged(nameof(Inteligencia));
-            }
-         }
-         public int Disputas
-        {
-            get => Disputas;
-            set
-            {
-                Disputas = value;
-                OnPropertyChanged(nameof(Disputas));
-            }
-        }
-        public int Vitorias
-        {
-            get => Vitorias;
-            set
-            {
-                Vitorias = value;
-                OnPropertyChanged(nameof(Vitorias));
-            }
-        }
-         public int Derrotas
-        {
-            get => Derrotas;
-            set
-            {
-                Derrotas = value;
-                OnPropertyChanged(nameof(Derrotas));
+                Classe1 = value;
+                OnPropertyChanged(nameof(Classe1));
             }
         }
         private ObservableCollection<TipoClasse> listaTiposClasse;
@@ -135,9 +96,9 @@ namespace AppRpgEtec.ViewModels.Personagens
             try
             {
                 ListaTiposClasse = new ObservableCollection<TipoClasse>();
-                ListaTiposClasse.Add(new TipoClasse { Id = 1, Descricao = "Cavaleiro" });
-                ListaTiposClasse.Add(new TipoClasse { Id = 2, Descricao = "Mago" });
-                ListaTiposClasse.Add(new TipoClasse { Id = 3, Descricao = " Clerigo" });
+                ListaTiposClasse.Add(new TipoClasse { Id = 1, Nome = "Julia",Nível= 3,Raça= "Elfo",Classe1="Clerigo" });
+                ListaTiposClasse.Add(new TipoClasse { Id = 2, Nome = "Marcelo", Nível = 4, Raça = "Anão",Classe1="Mago"});
+                ListaTiposClasse.Add(new TipoClasse { Id = 3, Nome = " Madalena", Nível = 7, Raça = "Humano",Classe1="Guerreiro"});
                 OnPropertyChanged(nameof(ListaTiposClasse));
             }
             catch (Exception ex)
@@ -168,12 +129,10 @@ namespace AppRpgEtec.ViewModels.Personagens
                 Personagem model = new Personagem()
                 {
                     Nome = this.nome,
-                    PontosVida = this.pontosVida,
-                    Defesa = this.defesa,
-                    Derrotas = this.derrotas,
-                    Forca = this.forca,
-                    Inteligencia = this.inteligencia,
-                    Vitorias = this.vitorias,
+                    Nível = this.nível,
+                    Raça = this.raça,
+                    Classe1 = this.classe1,
+
                     Id = this.id,
                     Classe = (ClasseEnum)tipoClasseSelecionado.Id
 

@@ -98,5 +98,14 @@ namespace AppRpgEtec.Services
         {
             throw new NotImplementedException();
         }
+        internal Task<int> PostReturnIntAsync(object apiUrlBase, Time t, string token)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Task<Personagem> PostReturnIntAsync(string apiUrlBse, object t, string token)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

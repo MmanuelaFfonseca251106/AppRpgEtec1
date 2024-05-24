@@ -53,4 +53,5 @@ namespace AppRpgEtec.ViewModels.Personagens
             
         }
     }
+
 }

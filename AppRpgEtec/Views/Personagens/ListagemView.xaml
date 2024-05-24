@@ -5,7 +5,7 @@
              Title="ListagemView">
 
     <Shell.TitleView>
-        <Button Command="{Binding NovoPersonagem}" Text="Novo" HorizontalOptions="End"></Button>
+        <Button Command="{Binding NovoPersonagemCommand}" Text="Novo" HorizontalOptions="End"></Button>
     </Shell.TitleView>
     
     <ScrollView>
@@ -16,7 +16,9 @@
                         <ViewCell>
                             <StackLayout Padding="10">
                                 <Label Text="{Binding Nome}" FontSize="18" FontAttributes="Bold"/>
-                                <Label Text="{Binding PontosVida}" FontSize="14"/>
+                                <Label Text="{Binding Nível}" FontSize="14"/>
+                                <Label Text="{Binding Raça}" FontSize="14"/>
+                                <Label Text="{Binding Classe}" FontSize="14"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
